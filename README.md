@@ -8,3 +8,6 @@ I will be attempting to make a web app that is similar to the https://studywithm
 - Python / Flask
 - HTML
 - CSS
+
+# Instructions
+To run the web app, use the command `flask --app main run` in the terminal

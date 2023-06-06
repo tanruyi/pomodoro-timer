@@ -1,0 +1,20 @@
+# @format
+
+name: Assign
+
+on:
+    issues:
+        types: [opened]
+
+    project_card:
+        types: [created]
+
+jobs:
+    auto-assign:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Auto-assign issue to me"
+              uses: pozil/auto-assign-issue@v1.11.0
+              with:
+                  repo-token: ${{ secrets.GITHUB_TOKEN }}
+                  assignees: tanruyi
