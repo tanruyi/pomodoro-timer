@@ -1,5 +1,6 @@
 /** @format */
 
+/* CSS VARIABLES */
 body {
 	--footer-height: 10vh;
 }
@@ -17,4 +18,13 @@ body {
 	right: 0;
 	top: 0;
 	bottom: var(--footer-height);
+}
+
+#logo {
+	color: white;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 24px;
+	font-family: "Synonym-Bold";
 }
