@@ -28,3 +28,20 @@ body {
 	font-size: 24px;
 	font-family: "Synonym-Bold";
 }
+
+footer {
+	background-color: rgba(36, 35, 41, 255);
+	font-family: "Synonym-Semibold";
+	height: var(--footer-height);
+	color: white;
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.fa-brands {
+	color: white;
+	padding: 10px;
+}
