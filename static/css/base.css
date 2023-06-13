@@ -55,6 +55,11 @@ body {
 	cursor: pointer;
 }
 
+.timer-buttons-active {
+	background-color: white;
+	color: var(--black);
+}
+
 .timer-buttons:hover {
 	background-color: white;
 	color: var(--black);

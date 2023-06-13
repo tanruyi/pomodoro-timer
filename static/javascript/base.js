@@ -37,10 +37,38 @@ window.addEventListener("load", function () {
 	/*=====================================
 	// EVENT HANDLERS
     =====================================*/
+
+	function changeTimerButtonsStyling(type) {
+		if (type === "add") {
+			if (activeTimerOptionIndex === 0) {
+				focusButton.classList.add("timer-buttons-active");
+			} else if (activeTimerOptionIndex === 1) {
+				breakButton.classList.add("timer-buttons-active");
+			} else {
+				rechargeButton.classList.add("timer-buttons-active");
+			}
+		} else if (type === "remove") {
+			if (activeTimerOptionIndex === 0) {
+				focusButton.classList.remove("timer-buttons-active");
+			} else if (activeTimerOptionIndex === 1) {
+				breakButton.classList.remove("timer-buttons-active");
+			} else {
+				rechargeButton.classList.remove("timer-buttons-active");
+			}
+		}
+	}
+
 	function changeTimer(option) {
+		// remove active button styling for current timer option
+		changeTimerButtonsStyling("remove");
+
 		// find index of chosen option in array timerOptions
 		activeTimerOptionIndex = timerOptions.findIndex((element) => element.name === option);
 
+		// add active button styling for chosen timer option
+		changeTimerButtonsStyling("add");
+
+		// change countdown
 		changeCountdown();
 	}
 
