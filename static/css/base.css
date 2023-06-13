@@ -29,6 +29,41 @@ body {
 	font-family: "Synonym-Bold";
 }
 
+#timer-section {
+	position: absolute;
+	inset: 0;
+	height: calc(100vh - var(--footer-height));
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.timer-button {
+	margin: 0 5px;
+	background-color: rgba(0, 0, 0, 0);
+	border-color: white;
+	padding: 5px 10px;
+	border-radius: 20px;
+	border-style: solid;
+	width: 150px;
+	color: white;
+	font-family: "Synonym-Semibold";
+	font-size: 18px;
+}
+
+.timer-button:hover {
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+#timer-countdown {
+	color: white;
+	font-family: "Synonym-Bold";
+	font-size: 96px;
+}
+
 footer {
 	background-color: rgba(36, 35, 41, 255);
 	font-family: "Synonym-Semibold";

@@ -1,15 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 
-from data import backgroundData
+from data import backgroundData, timerOptions
 
 # create the app
 app = Flask(__name__)
         
-indexOfBackgroundImage = 0;
+indexOfActiveBackgroundImage = 0;
 
-@app.route("/")
+indexOfActiveTimerOption = 0;
+
+@app.route("/", methods=["GET", "POST"])
 def home():
-    return render_template("base.html", imageURL = backgroundData[indexOfBackgroundImage]['fileLocation'])
+    global indexOfActiveTimerOption
+    
+    if request.method == 'POST':
+        if request.form.get('focus') == 'focus':
+            indexOfActiveTimerOption = 0
+        elif request.form.get('break') == 'break':
+            indexOfActiveTimerOption = 1
+        else:
+            indexOfActiveTimerOption = 2
+            
+        # return redirect("/")
+            
+    return render_template("base.html", imageURL = backgroundData[indexOfActiveBackgroundImage]['fileLocation'], 
+                           timerOptions=timerOptions,
+                           indexOfActiveTimerOption=indexOfActiveTimerOption)
     
 # we only run the app if this file is run, the app should not run if this file is imported by another file
 if __name__ == '__main__':

@@ -24,6 +24,23 @@
 		<!-- logo -->
 		<p id="logo">pomodoro timer</p>
 
+		<!-- timer -->
+		<section id="timer-section">
+			<!-- <form action="/" method="post"> -->
+			<!-- {% for option in timerOptions %}
+
+				<button class="timer-button" type="submit" name="{{ option['name'] }}" value="{{ option['name'] }}">{{ option['name'] }}</button>
+
+				{% endfor %} -->
+			<div>
+				<button id="focus-button" class="timer-button">focus</button>
+				<button id="break-button" class="timer-button">break</button>
+				<button id="recharge-button" class="timer-button">recharge</button>
+			</div>
+			<!-- </form> -->
+			<h1 id="timer-countdown">25:00</h1>
+		</section>
+
 		<!-- footer -->
 		<footer>
 			<p>Created with 💖 by Ru Yi</p>
@@ -36,5 +53,6 @@
 				</a>
 			</div>
 		</footer>
+		<script src="/static/javascript/base.js" charset="utf-8"></script>
 	</body>
 </html>
