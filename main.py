@@ -1,15 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 
 from data import backgroundData
 
 # create the app
 app = Flask(__name__)
         
-indexOfBackgroundImage = 0;
+indexOfActiveBackgroundImage = 0;
 
-@app.route("/")
+
+@app.route("/", methods=["GET", "POST"])
 def home():
-    return render_template("base.html", imageURL = backgroundData[indexOfBackgroundImage]['fileLocation'])
+            
+    return render_template("base.html", imageURL = backgroundData[indexOfActiveBackgroundImage]['fileLocation'], 
+                           )
     
 # we only run the app if this file is run, the app should not run if this file is imported by another file
 if __name__ == '__main__':

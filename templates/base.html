@@ -17,12 +17,28 @@
 	</head>
 
 	<body>
-		<!-- background image -->
-		<img id="page-background-image" src="{{ imageURL }}" alt="dried-flowers" />
-		<div id="page-background-overlay"></div>
+		<main>
+			<!-- background image -->
+			<img id="page-background-image" src="{{ imageURL }}" alt="dried-flowers" />
+			<div id="page-background-overlay"></div>
 
-		<!-- logo -->
-		<p id="logo">pomodoro timer</p>
+			<!-- logo -->
+			<p id="logo">pomodoro timer</p>
+
+			<!-- timer -->
+			<section id="timer-section">
+				<div>
+					<button id="focus-button" class="timer-buttons timer-buttons-active">focus</button>
+					<button id="break-button" class="timer-buttons">break</button>
+					<button id="recharge-button" class="timer-buttons">recharge</button>
+				</div>
+				<h1 id="timer-countdown">25:00</h1>
+				<div>
+					<button id="start-pause-button" class="timer-control-buttons">start</button>
+					<button id="reset-button" class="timer-control-buttons">reset</button>
+				</div>
+			</section>
+		</main>
 
 		<!-- footer -->
 		<footer>
@@ -36,5 +52,8 @@
 				</a>
 			</div>
 		</footer>
+
+		<!-- javascript files -->
+		<script src="/static/javascript/base.js" charset="utf-8"></script>
 	</body>
 </html>
