@@ -21,17 +21,3 @@ backgroundData = [
     }
 ]
 
-timerOptions = [
-    {
-        'name': 'focus',
-        'duration': '25:00'
-    },
-    {
-        'name': 'break',
-        'duration': '05:00'
-    },
-    {
-        'name': 'recharge',
-        'duration': '30:00'
-    }
-]
