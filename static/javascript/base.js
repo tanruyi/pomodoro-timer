@@ -31,6 +31,7 @@ window.addEventListener("load", function () {
 	const focusButton = document.getElementById("focus-button");
 	const breakButton = document.getElementById("break-button");
 	const rechargeButton = document.getElementById("recharge-button");
+	const playPauseButton = document.getElementById("start-pause-button");
 
 	/*=====================================
 	// EVENT HANDLERS
@@ -46,6 +47,14 @@ window.addEventListener("load", function () {
 		countdown.innerText = timerOptions[activeTimerOptionIndex].duration;
 	}
 
+	function changePlayPauseButtonText(e) {
+		if (e.target.innerText === "start") {
+			playPauseButton.innerText = "pause";
+		} else {
+			playPauseButton.innerText = "start";
+		}
+	}
+
 	/*=====================================
 	// EVENT LISTENERS
     =====================================*/
@@ -59,5 +68,9 @@ window.addEventListener("load", function () {
 
 	rechargeButton.addEventListener("click", function () {
 		changeTimer("recharge");
+	});
+
+	playPauseButton.addEventListener("click", function (e) {
+		changePlayPauseButtonText(e);
 	});
 });
