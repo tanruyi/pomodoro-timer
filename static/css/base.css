@@ -91,6 +91,17 @@ body {
 	color: white;
 }
 
+#spotify-playlist {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: calc(var(--footer-height) + 10vh);
+	width: 75vw;
+	height: 80px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 footer {
 	background-color: var(--black);
 	font-family: "Synonym-Semibold";
@@ -118,5 +129,14 @@ footer {
 	.timer-control-buttons {
 		width: 150px;
 		font-size: 24px;
+	}
+
+	#spotify-playlist {
+		left: auto;
+		right: 50px;
+		width: 400px;
+		height: 152px;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
