@@ -6,27 +6,22 @@ window.addEventListener("load", function () {
 	/*=====================================
 	// DATA
     =====================================*/
-
-	// duration is in minutes
 	let timerOptions = [
 		{
 			name: "focus",
-			duration: 25,
+			duration: "25:00",
 		},
 		{
 			name: "break",
-			duration: 5,
+			duration: "05:00",
 		},
 		{
 			name: "recharge",
-			duration: 30,
+			duration: "30:00",
 		},
 	];
 
 	let activeTimerOptionIndex = 0;
-
-	let timerInterval;
-	let timer = timerOptions[activeTimerOptionIndex].duration * 60;
 
 	/*=====================================
 	// DOM ELEMENTS
@@ -78,43 +73,15 @@ window.addEventListener("load", function () {
 	}
 
 	function changeCountdown() {
-		// change the countdown displayed in HTML
-		let durationMin = timerOptions[activeTimerOptionIndex].duration;
-		countdown.innerText = durationMin < 10 ? "0" + durationMin + ":00" : durationMin + ":00";
-
-		// change the timer for javascript countdown
-		timer = timerOptions[activeTimerOptionIndex].duration * 60;
+		countdown.innerText = timerOptions[activeTimerOptionIndex].duration;
 	}
 
-	function changePlayPauseButtonText(action) {
-		playPauseButton.innerText = action;
-		if (action === "pause") {
-			startCountdown();
+	function changePlayPauseButtonText(e) {
+		if (e.target.innerText === "start") {
+			playPauseButton.innerText = "pause";
 		} else {
-			stopCountdown();
+			playPauseButton.innerText = "start";
 		}
-	}
-
-	function startCountdown() {
-		timerInterval = setInterval(function () {
-			timer--;
-
-			let minutes = parseInt(timer / 60, 10);
-			let seconds = parseInt(timer % 60, 10);
-
-			minutes = minutes < 10 ? "0" + minutes : minutes;
-			seconds = seconds < 10 ? "0" + seconds : seconds;
-
-			countdown.innerText = minutes + ":" + seconds;
-
-			if (timer == 0) {
-				stopCountdown();
-			}
-		}, 1000);
-	}
-
-	function stopCountdown() {
-		clearInterval(timerInterval);
 	}
 
 	/*=====================================
@@ -122,30 +89,21 @@ window.addEventListener("load", function () {
     =====================================*/
 	focusButton.addEventListener("click", function () {
 		changeTimer("focus");
-		changePlayPauseButtonText("start");
 	});
 
 	breakButton.addEventListener("click", function () {
 		changeTimer("break");
-		changePlayPauseButtonText("start");
 	});
 
 	rechargeButton.addEventListener("click", function () {
 		changeTimer("recharge");
-		changePlayPauseButtonText("start");
 	});
 
 	playPauseButton.addEventListener("click", function (e) {
-		if (e.target.innerText === "start") {
-			changePlayPauseButtonText("pause");
-		} else {
-			changePlayPauseButtonText("start");
-		}
+		changePlayPauseButtonText(e);
 	});
 
 	resetButton.addEventListener("click", function () {
-		changePlayPauseButtonText("start");
-
 		changeCountdown();
 	});
 });
