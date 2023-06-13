@@ -32,6 +32,7 @@ window.addEventListener("load", function () {
 	const breakButton = document.getElementById("break-button");
 	const rechargeButton = document.getElementById("recharge-button");
 	const playPauseButton = document.getElementById("start-pause-button");
+	const resetButton = document.getElementById("reset-button");
 
 	/*=====================================
 	// EVENT HANDLERS
@@ -72,5 +73,9 @@ window.addEventListener("load", function () {
 
 	playPauseButton.addEventListener("click", function (e) {
 		changePlayPauseButtonText(e);
+	});
+
+	resetButton.addEventListener("click", function () {
+		changeCountdown();
 	});
 });
