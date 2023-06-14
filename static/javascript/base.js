@@ -28,6 +28,8 @@ window.addEventListener("load", function () {
 	let timerInterval;
 	let timer = timerOptions[activeTimerOptionIndex].duration * 60;
 
+	const alarm = new Audio("/static/assets/bell-congratulations-epic-stock-media-1-00-01.mp3");
+
 	/*=====================================
 	// DOM ELEMENTS
     =====================================*/
@@ -111,6 +113,7 @@ window.addEventListener("load", function () {
 
 			if (timer == 0) {
 				stopCountdown();
+				alarm.play();
 				messagePopup.style.display = "block";
 			}
 		}, 1000);

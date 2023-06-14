@@ -103,7 +103,7 @@ body {
 }
 
 #message-popup-section {
-	/* display: none; */
+	display: none;
 }
 
 #message-overlay {
