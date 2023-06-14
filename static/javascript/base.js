@@ -38,6 +38,8 @@ window.addEventListener("load", function () {
 	const rechargeButton = document.getElementById("recharge-button");
 	const playPauseButton = document.getElementById("start-pause-button");
 	const resetButton = document.getElementById("reset-button");
+	const messagePopup = document.getElementById("message-popup-section");
+	const messageCloseIcon = document.getElementById("message-close");
 
 	/*=====================================
 	// EVENT HANDLERS
@@ -109,6 +111,7 @@ window.addEventListener("load", function () {
 
 			if (timer == 0) {
 				stopCountdown();
+				messagePopup.style.display = "block";
 			}
 		}, 1000);
 	}
@@ -146,5 +149,9 @@ window.addEventListener("load", function () {
 	resetButton.addEventListener("click", function () {
 		changePlayPauseButtonText("start");
 		changeCountdown();
+	});
+
+	messageCloseIcon.addEventListener("click", function () {
+		messagePopup.style.display = "none";
 	});
 });

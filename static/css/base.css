@@ -102,6 +102,49 @@ body {
 	margin-right: auto;
 }
 
+#message-popup-section {
+	/* display: none; */
+}
+
+#message-overlay {
+	background-color: var(--bg-overlay);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: var(--footer-height);
+}
+
+#message-container {
+	background-color: white;
+	position: relative;
+	top: 10vh;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	height: 85px;
+	width: 75vw;
+	border-radius: 20px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#message-close {
+	width: 95%;
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+#message {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 14px;
+}
+
 footer {
 	background-color: var(--black);
 	font-family: "Synonym-Semibold";
@@ -138,5 +181,10 @@ footer {
 		height: 152px;
 		margin-left: 0;
 		margin-right: 0;
+	}
+
+	#message-container {
+		height: 75px;
+		width: 30vw;
 	}
 }
