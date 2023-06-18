@@ -40,8 +40,11 @@ window.addEventListener("load", function () {
 	const rechargeButton = document.getElementById("recharge-button");
 	const playPauseButton = document.getElementById("start-pause-button");
 	const resetButton = document.getElementById("reset-button");
-	const messagePopup = document.getElementById("message-popup-section");
+	const messagePopup = document.getElementById("message-popup");
 	const messageCloseIcon = document.getElementById("message-close");
+	const creditsButton = document.getElementById("credits-button");
+	const creditsModal = document.getElementById("credits-modal");
+	const creditsCloseIcon = document.getElementById("credits-close");
 
 	/*=====================================
 	// EVENT HANDLERS
@@ -156,5 +159,13 @@ window.addEventListener("load", function () {
 
 	messageCloseIcon.addEventListener("click", function () {
 		messagePopup.style.display = "none";
+	});
+
+	creditsButton.addEventListener("click", function () {
+		creditsModal.style.display = "block";
+	});
+
+	creditsCloseIcon.addEventListener("click", function () {
+		creditsModal.style.display = "none";
 	});
 });

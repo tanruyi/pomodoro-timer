@@ -7,7 +7,8 @@ body {
 	--black: rgba(36, 35, 41, 255);
 }
 
-/* CSS for mobile */
+/* background image */
+
 #page-background-image {
 	height: calc(100vh - var(--footer-height));
 	width: 100vw;
@@ -23,14 +24,41 @@ body {
 	bottom: var(--footer-height);
 }
 
-#logo {
-	color: white;
+/* menu bar */
+
+#menu-bar {
 	position: absolute;
-	top: 20px;
-	left: 20px;
-	font-size: 24px;
+	z-index: 1;
+	top: 0;
+	width: 100vw;
+	padding: 20px;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#logo {
+	font-size: 20px;
 	font-family: "Synonym-Bold";
 }
+
+#credits-button {
+	font-family: "Synonym-Semibold";
+	cursor: pointer;
+}
+
+#credits-button:hover {
+	text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) {
+	#logo {
+		font-size: 24px;
+	}
+}
+
+/* timer */
 
 #timer-section {
 	position: absolute;
@@ -91,6 +119,20 @@ body {
 	color: white;
 }
 
+@media only screen and (min-width: 768px) {
+	.timer-buttons {
+		width: 150px;
+		font-size: 18px;
+	}
+
+	.timer-control-buttons {
+		width: 150px;
+		font-size: 24px;
+	}
+}
+
+/* spotify playlist */
+
 #spotify-playlist {
 	position: absolute;
 	left: 0;
@@ -102,7 +144,20 @@ body {
 	margin-right: auto;
 }
 
-#message-popup-section {
+@media only screen and (min-width: 768px) {
+	#spotify-playlist {
+		left: auto;
+		right: 50px;
+		width: 400px;
+		height: 152px;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+/* message modal */
+
+#message-popup {
 	display: none;
 }
 
@@ -145,6 +200,110 @@ body {
 	font-size: 14px;
 }
 
+@media only screen and (min-width: 768px) {
+	#message-container {
+		height: 75px;
+		width: 30vw;
+	}
+}
+
+/* credits modal */
+
+#credits-modal {
+	display: none;
+}
+
+#credits-overlay {
+	background-color: var(--bg-overlay);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: var(--footer-height);
+}
+
+#credits-container {
+	background-color: white;
+	position: relative;
+	top: 10vh;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 25px;
+	width: 90vw;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+#credits-close {
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+.credits-list {
+	padding-left: 40px;
+}
+
+#credits-container h1 {
+	font-size: 16px;
+	font-family: "Synonym-Semibold";
+}
+
+#credits-container h2 {
+	font-family: "Synonym-Semibold";
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+#credits-container ul {
+	font-size: 12px;
+}
+
+@media only screen and (min-width: 600px) {
+	#credits-container {
+		padding: 30px;
+	}
+
+	#credits-container h1 {
+		font-size: 18px;
+		font-family: "Synonym-Semibold";
+	}
+
+	#credits-container h2 {
+		font-family: "Synonym-Semibold";
+		margin-top: 12px;
+	}
+
+	#credits-container ul {
+		font-size: 12px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#credits-container {
+		min-height: 85px;
+		width: 50vw;
+		padding: 50px;
+	}
+
+	#credits-container h1 {
+		font-size: 20px;
+		font-family: "Synonym-Semibold";
+	}
+
+	#credits-container h2 {
+		margin-top: 15px;
+	}
+
+	#credits-container ul {
+		font-size: 14px;
+	}
+}
+
+/* footer */
+
 footer {
 	background-color: var(--black);
 	font-family: "Synonym-Semibold";
@@ -160,31 +319,4 @@ footer {
 .fa-brands {
 	color: white;
 	padding: 10px;
-}
-
-/* CSS for landscape tablets and up */
-@media only screen and (min-width: 768px) {
-	.timer-buttons {
-		width: 150px;
-		font-size: 18px;
-	}
-
-	.timer-control-buttons {
-		width: 150px;
-		font-size: 24px;
-	}
-
-	#spotify-playlist {
-		left: auto;
-		right: 50px;
-		width: 400px;
-		height: 152px;
-		margin-left: 0;
-		margin-right: 0;
-	}
-
-	#message-container {
-		height: 75px;
-		width: 30vw;
-	}
 }
