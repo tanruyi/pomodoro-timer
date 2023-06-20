@@ -70,6 +70,15 @@ body {
 	align-items: center;
 }
 
+#progress-section {
+	padding: 40px;
+}
+
+.fa-star {
+	padding: 0 5px;
+	color: white;
+}
+
 .timer-buttons {
 	margin: 0 5px;
 	background-color: rgba(0, 0, 0, 0);
