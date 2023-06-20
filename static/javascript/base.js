@@ -30,6 +30,8 @@ window.addEventListener("load", function () {
 
 	const alarm = new Audio("/static/assets/bell-congratulations-epic-stock-media-1-00-01.mp3");
 
+	let progress = 0;
+
 	/*=====================================
 	// DOM ELEMENTS
     =====================================*/
@@ -45,6 +47,7 @@ window.addEventListener("load", function () {
 	const creditsButton = document.getElementById("credits-button");
 	const creditsModal = document.getElementById("credits-modal");
 	const creditsCloseIcon = document.getElementById("credits-close");
+	const stars = document.querySelectorAll(".fa-star");
 
 	/*=====================================
 	// EVENT HANDLERS
@@ -114,16 +117,41 @@ window.addEventListener("load", function () {
 
 			countdown.innerText = minutes + ":" + seconds;
 
+			// once timer ends, stop timer, play alarm sound, show message modal, and update progress stars
 			if (timer == 0) {
 				stopCountdown();
 				alarm.play();
 				messagePopup.style.display = "block";
+
+				// reset timer button & timer duration
+				changePlayPauseButtonText("start");
+				changeCountdown();
+
+				// add progress stars only if user finished focus timer
+				if (activeTimerOptionIndex === 0) {
+					progress += 1;
+					updateStars("add");
+				}
 			}
 		}, 1000);
 	}
 
 	function stopCountdown() {
 		clearInterval(timerInterval);
+	}
+
+	function updateStars(type) {
+		if (type === "add") {
+			for (let i = 0; i < progress; i++) {
+				stars[i].classList.remove("fa-regular");
+				stars[i].classList.add("fa-solid");
+			}
+		} else if (type === "reset") {
+			for (let i = 0; i < 4; i++) {
+				stars[i].classList.remove("fa-solid");
+				stars[i].classList.add("fa-regular");
+			}
+		}
 	}
 
 	/*=====================================
@@ -146,6 +174,10 @@ window.addEventListener("load", function () {
 
 	playPauseButton.addEventListener("click", function (e) {
 		if (e.target.innerText === "start") {
+			if (progress === 4 && activeTimerOptionIndex === 0) {
+				progress = 0;
+				updateStars("reset");
+			}
 			changePlayPauseButtonText("pause");
 		} else {
 			changePlayPauseButtonText("start");
