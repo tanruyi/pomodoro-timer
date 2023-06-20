@@ -38,19 +38,31 @@ window.addEventListener("load", function () {
 	// DOM ELEMENTS
     =====================================*/
 
+	// menu bar
+	const creditsButton = document.getElementById("credits-button");
+	const aboutButton = document.getElementById("about-button");
+
+	// timer section
+	const stars = document.querySelectorAll(".fa-star");
 	const countdown = document.getElementById("timer-countdown");
 	const focusButton = document.getElementById("focus-button");
 	const breakButton = document.getElementById("break-button");
 	const rechargeButton = document.getElementById("recharge-button");
 	const playPauseButton = document.getElementById("start-pause-button");
 	const resetButton = document.getElementById("reset-button");
+
+	// message popup
 	const messagePopup = document.getElementById("message-popup");
 	const messageCloseIcon = document.getElementById("message-close");
 	const messageText = document.getElementById("message");
-	const creditsButton = document.getElementById("credits-button");
+
+	// about modal
+	const aboutModal = document.getElementById("about-modal");
+	const aboutCloseIcon = document.getElementById("about-close");
+
+	// credits modal
 	const creditsModal = document.getElementById("credits-modal");
 	const creditsCloseIcon = document.getElementById("credits-close");
-	const stars = document.querySelectorAll(".fa-star");
 
 	/*=====================================
 	// EVENT HANDLERS
@@ -205,6 +217,14 @@ window.addEventListener("load", function () {
 
 	messageCloseIcon.addEventListener("click", function () {
 		messagePopup.style.display = "none";
+	});
+
+	aboutButton.addEventListener("click", function () {
+		aboutModal.style.display = "block";
+	});
+
+	aboutCloseIcon.addEventListener("click", function () {
+		aboutModal.style.display = "none";
 	});
 
 	creditsButton.addEventListener("click", function () {

@@ -7,6 +7,11 @@ body {
 	--black: rgba(36, 35, 41, 255);
 }
 
+/* global declarations */
+li {
+	line-height: 2;
+}
+
 /* background image */
 
 #page-background-image {
@@ -43,12 +48,14 @@ body {
 	font-family: "Synonym-Bold";
 }
 
-#credits-button {
+.nav-button {
+	display: inline;
 	font-family: "Synonym-Semibold";
 	cursor: pointer;
+	padding: 0 5px;
 }
 
-#credits-button:hover {
+.nav-button:hover {
 	text-decoration: underline;
 }
 
@@ -216,8 +223,83 @@ body {
 	}
 }
 
-/* credits modal */
+/* about modal */
+#about-modal {
+	display: none;
+}
 
+#about-overlay {
+	background-color: var(--bg-overlay);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: var(--footer-height);
+}
+
+#about-container {
+	background-color: white;
+	position: relative;
+	top: 25vh;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 25px;
+	width: 90vw;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+#about-close {
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+#about-container h1 {
+	font-size: 16px;
+	font-family: "Synonym-Semibold";
+	margin: 5px 0;
+}
+
+#about-container ul {
+	font-size: 12px;
+}
+
+@media only screen and (min-width: 600px) {
+	#about-container {
+		padding: 30px;
+	}
+
+	#about-container h1 {
+		font-size: 18px;
+		font-family: "Synonym-Semibold";
+	}
+
+	#about-container ul {
+		font-size: 12px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#about-container {
+		min-height: 85px;
+		width: 50vw;
+		padding: 50px;
+	}
+
+	#about-container h1 {
+		font-size: 20px;
+		font-family: "Synonym-Semibold";
+	}
+
+	#about-container ul {
+		font-size: 14px;
+	}
+}
+
+/* credits modal */
 #credits-modal {
 	display: none;
 }
@@ -234,7 +316,7 @@ body {
 #credits-container {
 	background-color: white;
 	position: relative;
-	top: 10vh;
+	top: 15vh;
 	left: 0;
 	right: 0;
 	margin-left: auto;
@@ -249,10 +331,6 @@ body {
 	display: flex;
 	justify-content: flex-end;
 	cursor: pointer;
-}
-
-.credits-list {
-	padding-left: 40px;
 }
 
 #credits-container h1 {
