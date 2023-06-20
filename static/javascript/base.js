@@ -32,6 +32,8 @@ window.addEventListener("load", function () {
 
 	let progress = 0;
 
+	const messages = ["Give yourself a pat on the back! You have earned a star! ⭐", "You completed 4 focus sessions! Congratulations! 🎉"];
+
 	/*=====================================
 	// DOM ELEMENTS
     =====================================*/
@@ -44,6 +46,7 @@ window.addEventListener("load", function () {
 	const resetButton = document.getElementById("reset-button");
 	const messagePopup = document.getElementById("message-popup");
 	const messageCloseIcon = document.getElementById("message-close");
+	const messageText = document.getElementById("message");
 	const creditsButton = document.getElementById("credits-button");
 	const creditsModal = document.getElementById("credits-modal");
 	const creditsCloseIcon = document.getElementById("credits-close");
@@ -121,7 +124,6 @@ window.addEventListener("load", function () {
 			if (timer == 0) {
 				stopCountdown();
 				alarm.play();
-				messagePopup.style.display = "block";
 
 				// reset timer button & timer duration
 				changePlayPauseButtonText("start");
@@ -132,6 +134,10 @@ window.addEventListener("load", function () {
 					progress += 1;
 					updateStars("add");
 				}
+
+				// update message modal & show
+				updateMessageInModal();
+				messagePopup.style.display = "block";
 			}
 		}, 1000);
 	}
@@ -151,6 +157,14 @@ window.addEventListener("load", function () {
 				stars[i].classList.remove("fa-solid");
 				stars[i].classList.add("fa-regular");
 			}
+		}
+	}
+
+	function updateMessageInModal() {
+		if (progress === 4) {
+			messageText.innerText = messages[1];
+		} else {
+			messageText.innerText = messages[0];
 		}
 	}
 
