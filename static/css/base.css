@@ -53,10 +53,17 @@ li {
 	font-family: "Synonym-Semibold";
 	cursor: pointer;
 	padding: 0 5px;
+	font-size: 13px;
 }
 
 .nav-button:hover {
 	text-decoration: underline;
+}
+
+@media only screen and (min-width: 600px) {
+	.nav-button {
+		font-size: 18px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -229,6 +236,7 @@ li {
 }
 
 #about-overlay {
+	z-index: 2;
 	background-color: var(--bg-overlay);
 	position: absolute;
 	left: 0;
@@ -299,12 +307,185 @@ li {
 	}
 }
 
+/* settings modal */
+#settings-modal {
+	display: none;
+}
+
+#settings-overlay {
+	z-index: 2;
+	background-color: var(--bg-overlay);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: var(--footer-height);
+}
+
+#settings-container {
+	background-color: var(--black);
+	position: relative;
+	top: 25vh;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 25px;
+	width: 90vw;
+	border-radius: 20px;
+	padding: 20px;
+	color: white;
+}
+
+#settings-close {
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+#settings-body {
+	display: flex;
+	flex-direction: row;
+}
+
+#settings-left-div {
+	width: 30%;
+	font-family: "Synonym-Semibold";
+}
+
+.settings-category-button,
+.settings-category-button-active {
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.settings-category-button:hover,
+.settings-category-button-active {
+	text-decoration: underline;
+}
+
+.settings-right-div {
+	width: 70%;
+}
+
+#settings-right-div-task,
+#settings-right-div-timers {
+	display: none;
+}
+
+.settings-header {
+	margin-bottom: 10px;
+	font-family: "Synonym-Semibold";
+}
+
+.settings-right-div select {
+	border: none;
+	border-radius: 5px;
+	padding: 5px 5px;
+	font-size: 14px;
+}
+
+#task-name {
+	width: 75%;
+	border: var(--black);
+	border-radius: 5px;
+	padding: 5px 5px;
+	font-size: 14px;
+}
+
+#task-buttons {
+	margin-top: 10px;
+}
+
+.task-button {
+	margin-right: 5px;
+	background-color: white;
+	border-color: white;
+	padding: 2px;
+	border-radius: 10px;
+	border-style: solid;
+	width: 50px;
+	color: var(--black);
+	font-family: "Synonym-Semibold";
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.settings-timer-durations {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+#settings-timer-duration-labels,
+#settings-timer-duration-inputs {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+#settings-timer-duration-labels {
+	min-width: 40%;
+}
+
+#settings-timer-duration-labels label {
+	margin-bottom: 8px;
+}
+
+#settings-timer-duration-inputs input {
+	width: 125%;
+	border-radius: 5px;
+	padding: 2px;
+}
+
+#settings-timer-note {
+	font-size: 12px;
+	font-style: italic;
+	color: rgb(151, 149, 149);
+}
+
+@media only screen and (min-width: 600px) {
+	#settings-container {
+		padding: 30px;
+	}
+
+	.settings-right-div select {
+		padding: 5px 10px;
+		font-size: 16px;
+	}
+
+	#task-name {
+		padding: 5px 10px;
+		font-size: 16px;
+	}
+
+	.task-button {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#settings-container {
+		min-height: 85px;
+		width: 50vw;
+		padding: 50px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	#settings-timer-duration-labels {
+		min-width: 20%;
+	}
+}
+
 /* credits modal */
 #credits-modal {
 	display: none;
 }
 
 #credits-overlay {
+	z-index: 2;
 	background-color: var(--bg-overlay);
 	position: absolute;
 	left: 0;

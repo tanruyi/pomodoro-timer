@@ -20,7 +20,7 @@
 	<body>
 		<main>
 			<!-- background image -->
-			<img id="page-background-image" src="{{ imageURL }}" alt="dried-flowers" />
+			<img id="page-background-image" src="/static/assets/dried-flowers.jpg" alt="dried-flowers" />
 			<div id="page-background-overlay"></div>
 
 			<section id="menu-bar">
@@ -29,6 +29,7 @@
 
 				<div>
 					<p id="about-button" class="nav-button">about</p>
+					<p id="settings-button" class="nav-button">settings</p>
 					<p id="credits-button" class="nav-button">credits</p>
 				</div>
 			</section>
@@ -89,6 +90,61 @@
 							<li>take a short, 5-min break</li>
 							<li>for every 4 pomodoros, take a longer 15-30min break</li>
 						</ol>
+					</div>
+				</div>
+			</section>
+
+			<!-- settings modal -->
+			<section id="settings-modal">
+				<div id="settings-overlay">
+					<div id="settings-container">
+						<span id="settings-close" class="fa-solid fa-xmark"></span>
+						<div id="settings-body">
+							<!-- left: menu bar -->
+							<div id="settings-left-div">
+								<h1 id="settings-theme-button" class="settings-category-button settings-category-button-active">Theme</h1>
+								<h1 id="settings-task-button" class="settings-category-button">Task</h1>
+								<h1 id="settings-timers-button" class="settings-category-button">Timers</h1>
+							</div>
+							<!-- right: theme settings -->
+							<div id="settings-right-div-theme" class="settings-right-div">
+								<p class="settings-header">Select theme:</p>
+								<select id="background-img-select">
+									<option value="dried-flowers">Dried flowers</option>
+									<option value="rainbow-sky">Rainbow Sky</option>
+									<option value="snowy-rooftops">Snowy Rooftops</option>
+									<option value="snowy-streets">Snowy Streets</option>
+								</select>
+							</div>
+
+							<!-- right: task settings -->
+							<div id="settings-right-div-task" class="settings-right-div">
+								<p class="settings-header">Task:</p>
+								<input type="text" id="task-name" />
+								<div id="task-buttons">
+									<button id="save-task-button" class="task-button">save</button>
+									<button id="clear-task-button" class="task-button">clear</button>
+								</div>
+							</div>
+
+							<!-- right: timer settings -->
+							<div id="settings-right-div-timers" class="settings-right-div">
+								<p class="settings-header">Timer durations (in minutes):</p>
+								<div class="settings-timer-durations">
+									<div id="settings-timer-duration-labels">
+										<label for="focus-duration">Focus:</label>
+										<label for="break-duration">Break:</label>
+										<label for="recharge-duration">Recharge:</label>
+									</div>
+									<div id="settings-timer-duration-inputs">
+										<input id="focus-duration" type="number" value="25" min="1" max="60" />
+										<input id="break-duration" value="5" type="number" min="1" max="60" />
+										<input id="recharge-duration" value="30" type="number" min="1" max="60" />
+									</div>
+								</div>
+								<p id="settings-timer-note">Note: Minimum is 1 and maximum is 60.</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
