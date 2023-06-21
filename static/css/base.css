@@ -372,25 +372,6 @@ li {
 	font-size: 14px;
 }
 
-#settings-save {
-	display: flex;
-	justify-content: flex-end;
-	cursor: pointer;
-}
-
-#settings-save button {
-	background-color: white;
-	border-color: white;
-	padding: 5px 10px;
-	border-radius: 20px;
-	border-style: solid;
-	width: 130px;
-	color: var(--black);
-	font-family: "Synonym-Semibold";
-	font-size: 14px;
-	cursor: pointer;
-}
-
 @media only screen and (min-width: 600px) {
 	#settings-container {
 		padding: 30px;

@@ -23,6 +23,32 @@ window.addEventListener("load", function () {
 		},
 	];
 
+	let backgroundData = [
+		{
+			name: "dried-flowers",
+			fileLocation: "/static/assets/dried-flowers.jpg",
+			attribute:
+				'<a href="https://www.freepik.com/free-photo/dried-flower-window-shadow-floral-image_11460360.htm#query=aesthetic%20background&position=49&from_view=search&track=robertav1_2_sidr">Image by rawpixel.com</a> on Freepik',
+		},
+		{
+			name: "rainbow-sky",
+			fileLocation: "/static/assets/rainbow-sky.jpg",
+			attribute:
+				'<a href="https://www.freepik.com/free-vector/aesthetic-pastel-pink-background-rainbow-sky-with-glitter-design-vector_20346136.htm#page=3&query=aesthetic%20background&position=21&from_view=search&track=robertav1_2_sidr">Image by rawpixel.com</a> on Freepik',
+		},
+		{
+			name: "snowy-rooftops",
+			fileLocation: "/static/assets/snowy-rooftops.jpg",
+			attribute:
+				'Photo by <a href="https://unsplash.com/@5tep5?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aleksandr Popov</a> on <a href="https://unsplash.com/wallpapers/cool/aesthetic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
+		},
+		{
+			name: "snowy-streets",
+			fileLocation: "/static/assets/snowy-streets.jpg",
+			attribute: "https://www.artstation.com/artwork/D5Vlxo",
+		},
+	];
+
 	let activeTimerOptionIndex = 0;
 
 	let timerInterval;
@@ -37,6 +63,9 @@ window.addEventListener("load", function () {
 	/*=====================================
 	// DOM ELEMENTS
     =====================================*/
+
+	// background image
+	const bgImage = document.getElementById("page-background-image");
 
 	// menu bar
 	const creditsButton = document.getElementById("credits-button");
@@ -64,6 +93,7 @@ window.addEventListener("load", function () {
 	// settings modal
 	const settingsModal = document.getElementById("settings-modal");
 	const settingsCloseIcon = document.getElementById("settings-close");
+	const bgImageSelect = document.getElementById("background-img-select");
 
 	// credits modal
 	const creditsModal = document.getElementById("credits-modal");
@@ -185,6 +215,11 @@ window.addEventListener("load", function () {
 		}
 	}
 
+	function changeBackgroundImage(imgName) {
+		let imgIndex = backgroundData.findIndex((element) => element.name === imgName);
+		bgImage.src = backgroundData[imgIndex].fileLocation;
+	}
+
 	/*=====================================
 	// EVENT LISTENERS
     =====================================*/
@@ -238,6 +273,10 @@ window.addEventListener("load", function () {
 
 	settingsCloseIcon.addEventListener("click", function () {
 		settingsModal.style.display = "none";
+	});
+
+	bgImageSelect.addEventListener("change", function () {
+		changeBackgroundImage(bgImageSelect.value);
 	});
 
 	creditsButton.addEventListener("click", function () {

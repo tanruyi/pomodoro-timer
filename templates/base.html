@@ -20,7 +20,7 @@
 	<body>
 		<main>
 			<!-- background image -->
-			<img id="page-background-image" src="{{ imageURL }}" alt="dried-flowers" />
+			<img id="page-background-image" src="/static/assets/dried-flowers.jpg" alt="dried-flowers" />
 			<div id="page-background-overlay"></div>
 
 			<section id="menu-bar">
@@ -107,16 +107,13 @@
 							</div>
 							<div id="settings-right-div-theme" class="settings-right-div">
 								<p class="settings-header">Select theme:</p>
-								<select>
-									<option>Dried flowers</option>
-									<option>Rainbow Sky</option>
-									<option>Snowy Rooftops</option>
-									<option>Snowy Streets</option>
+								<select id="background-img-select">
+									<option value="dried-flowers">Dried flowers</option>
+									<option value="rainbow-sky">Rainbow Sky</option>
+									<option value="snowy-rooftops">Snowy Rooftops</option>
+									<option value="snowy-streets">Snowy Streets</option>
 								</select>
 							</div>
-						</div>
-						<div id="settings-save">
-							<button>save changes</button>
 						</div>
 					</div>
 				</div>

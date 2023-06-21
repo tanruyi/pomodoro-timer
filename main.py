@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, redirect
 
-from data import backgroundData
-
 # create the app
 app = Flask(__name__)
         
@@ -11,8 +9,7 @@ indexOfActiveBackgroundImage = 0;
 @app.route("/", methods=["GET", "POST"])
 def home():
             
-    return render_template("base.html", imageURL = backgroundData[indexOfActiveBackgroundImage]['fileLocation'], 
-                           )
+    return render_template("base.html")
     
 # we only run the app if this file is run, the app should not run if this file is imported by another file
 if __name__ == '__main__':
