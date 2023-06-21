@@ -236,6 +236,7 @@ li {
 }
 
 #about-overlay {
+	z-index: 2;
 	background-color: var(--bg-overlay);
 	position: absolute;
 	left: 0;
@@ -308,10 +309,11 @@ li {
 
 /* settings modal */
 #settings-modal {
-	/* display: none; */
+	display: none;
 }
 
 #settings-overlay {
+	z-index: 2;
 	background-color: var(--bg-overlay);
 	position: absolute;
 	left: 0;
@@ -351,17 +353,24 @@ li {
 	font-family: "Synonym-Semibold";
 }
 
-#settings-left-div h1 {
+.settings-category-button,
+.settings-category-button-active {
 	margin-bottom: 10px;
 	cursor: pointer;
 }
 
-#settings-left-div h1:hover {
+.settings-category-button:hover,
+.settings-category-button-active {
 	text-decoration: underline;
 }
 
 .settings-right-div {
 	width: 70%;
+}
+
+#settings-right-div-task,
+#settings-right-div-timers {
+	display: none;
 }
 
 .settings-header {
@@ -476,6 +485,7 @@ li {
 }
 
 #credits-overlay {
+	z-index: 2;
 	background-color: var(--bg-overlay);
 	position: absolute;
 	left: 0;

@@ -49,6 +49,8 @@ window.addEventListener("load", function () {
 		},
 	];
 
+	let settingCategories = ["theme", "task", "timers"];
+
 	let activeTimerOptionIndex = 0;
 
 	let timerInterval;
@@ -59,6 +61,8 @@ window.addEventListener("load", function () {
 	let progress = 0;
 
 	const messages = ["Give yourself a pat on the back! You have earned a star! ⭐", "You completed 4 focus sessions! Congratulations! 🎉"];
+
+	let currentSettingCategoryIndex = 0;
 
 	/*=====================================
 	// DOM ELEMENTS
@@ -93,6 +97,12 @@ window.addEventListener("load", function () {
 	// settings modal
 	const settingsModal = document.getElementById("settings-modal");
 	const settingsCloseIcon = document.getElementById("settings-close");
+	const themeButton = document.getElementById("settings-theme-button");
+	const taskButton = document.getElementById("settings-task-button");
+	const timersButton = document.getElementById("settings-timers-button");
+	const themeSection = document.getElementById("settings-right-div-theme");
+	const taskSection = document.getElementById("settings-right-div-task");
+	const timersSection = document.getElementById("settings-right-div-timers");
 	const bgImageSelect = document.getElementById("background-img-select");
 	const taskName = document.getElementById("task-name");
 	const saveTaskButton = document.getElementById("save-task-button");
@@ -221,6 +231,32 @@ window.addEventListener("load", function () {
 		}
 	}
 
+	function changeSettingsCategoryToDisplay(category) {
+		if (currentSettingCategoryIndex === 0) {
+			themeSection.style.display = "none";
+			themeButton.classList.remove("settings-category-button-active");
+		} else if (currentSettingCategoryIndex === 1) {
+			taskSection.style.display = "none";
+			taskButton.classList.remove("settings-category-button-active");
+		} else if (currentSettingCategoryIndex === 2) {
+			timersSection.style.display = "none";
+			timersButton.classList.remove("settings-category-button-active");
+		}
+
+		currentSettingCategoryIndex = settingCategories.findIndex((element) => element === category);
+
+		if (currentSettingCategoryIndex === 0) {
+			themeSection.style.display = "block";
+			themeButton.classList.add("settings-category-button-active");
+		} else if (currentSettingCategoryIndex === 1) {
+			taskSection.style.display = "block";
+			taskButton.classList.add("settings-category-button-active");
+		} else if (currentSettingCategoryIndex === 2) {
+			timersSection.style.display = "block";
+			timersButton.classList.add("settings-category-button-active");
+		}
+	}
+
 	function changeBackgroundImage(imgName) {
 		let imgIndex = backgroundData.findIndex((element) => element.name === imgName);
 		bgImage.src = backgroundData[imgIndex].fileLocation;
@@ -289,17 +325,28 @@ window.addEventListener("load", function () {
 		settingsModal.style.display = "none";
 	});
 
-	// bgImageSelect.addEventListener("change", function () {
-	// 	changeBackgroundImage(bgImageSelect.value);
-	// });
+	themeButton.addEventListener("click", function () {
+		changeSettingsCategoryToDisplay("theme");
+	});
 
-	// saveTaskButton.addEventListener("click", function () {
-	// 	saveTask();
-	// });
+	taskButton.addEventListener("click", function () {
+		changeSettingsCategoryToDisplay("task");
+	});
 
-	// clearTaskButton.addEventListener("click", function () {
-	// 	clearTask();
-	// });
+	timersButton.addEventListener("click", function () {
+		changeSettingsCategoryToDisplay("timers");
+	});
+
+	bgImageSelect.addEventListener("change", function () {
+		changeBackgroundImage(bgImageSelect.value);
+	});
+	saveTaskButton.addEventListener("click", function () {
+		saveTask();
+	});
+
+	clearTaskButton.addEventListener("click", function () {
+		clearTask();
+	});
 
 	focusDurationInput.addEventListener("change", function () {
 		timerOptions[0].duration = focusDurationInput.value;
