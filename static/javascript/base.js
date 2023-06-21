@@ -97,6 +97,9 @@ window.addEventListener("load", function () {
 	const taskName = document.getElementById("task-name");
 	const saveTaskButton = document.getElementById("save-task-button");
 	const clearTaskButton = document.getElementById("clear-task-button");
+	const focusDurationInput = document.getElementById("focus-duration");
+	const breakDurationInput = document.getElementById("break-duration");
+	const rechargeDurationInput = document.getElementById("recharge-duration");
 
 	// credits modal
 	const creditsModal = document.getElementById("credits-modal");
@@ -290,12 +293,27 @@ window.addEventListener("load", function () {
 	// 	changeBackgroundImage(bgImageSelect.value);
 	// });
 
-	saveTaskButton.addEventListener("click", function () {
-		saveTask();
+	// saveTaskButton.addEventListener("click", function () {
+	// 	saveTask();
+	// });
+
+	// clearTaskButton.addEventListener("click", function () {
+	// 	clearTask();
+	// });
+
+	focusDurationInput.addEventListener("change", function () {
+		timerOptions[0].duration = focusDurationInput.value;
+		changeCountdown();
 	});
 
-	clearTaskButton.addEventListener("click", function () {
-		clearTask();
+	breakDurationInput.addEventListener("change", function () {
+		timerOptions[1].duration = breakDurationInput.value;
+		changeCountdown();
+	});
+
+	rechargeDurationInput.addEventListener("change", function () {
+		timerOptions[2].duration = rechargeDurationInput.value;
+		changeCountdown();
 	});
 
 	creditsButton.addEventListener("click", function () {

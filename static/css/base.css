@@ -402,6 +402,40 @@ li {
 	cursor: pointer;
 }
 
+.settings-timer-durations {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+#settings-timer-duration-labels,
+#settings-timer-duration-inputs {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+#settings-timer-duration-labels {
+	min-width: 40%;
+}
+
+#settings-timer-duration-labels label {
+	margin-bottom: 8px;
+}
+
+#settings-timer-duration-inputs input {
+	width: 125%;
+	border-radius: 5px;
+	padding: 2px;
+}
+
+#settings-timer-note {
+	font-size: 12px;
+	font-style: italic;
+	color: rgb(151, 149, 149);
+}
+
 @media only screen and (min-width: 600px) {
 	#settings-container {
 		padding: 30px;
@@ -427,6 +461,12 @@ li {
 		min-height: 85px;
 		width: 50vw;
 		padding: 50px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	#settings-timer-duration-labels {
+		min-width: 20%;
 	}
 }
 

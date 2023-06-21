@@ -118,13 +118,31 @@
 							</div> -->
 
 							<!-- right: task settings -->
-							<div id="settings-right-div-task" class="settings-right-div">
+							<!-- <div id="settings-right-div-task" class="settings-right-div">
 								<p class="settings-header">Task:</p>
 								<input type="text" id="task-name" />
 								<div id="task-buttons">
 									<button id="save-task-button" class="task-button">save</button>
 									<button id="clear-task-button" class="task-button">clear</button>
 								</div>
+							</div> -->
+
+							<!-- right: timer settings -->
+							<div id="settings-right-div-timers" class="settings-right-div">
+								<p class="settings-header">Timer durations (in minutes):</p>
+								<div class="settings-timer-durations">
+									<div id="settings-timer-duration-labels">
+										<label for="focus-duration">Focus:</label>
+										<label for="break-duration">Break:</label>
+										<label for="recharge-duration">Recharge:</label>
+									</div>
+									<div id="settings-timer-duration-inputs">
+										<input id="focus-duration" type="number" value="25" min="1" max="60" />
+										<input id="break-duration" value="5" type="number" min="1" max="60" />
+										<input id="recharge-duration" value="30" type="number" min="1" max="60" />
+									</div>
+								</div>
+								<p id="settings-timer-note">Note: Minimum is 1 and maximum is 60.</p>
 							</div>
 						</div>
 					</div>
