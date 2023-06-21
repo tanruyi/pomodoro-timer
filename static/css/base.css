@@ -360,6 +360,10 @@ li {
 	text-decoration: underline;
 }
 
+.settings-right-div {
+	width: 70%;
+}
+
 .settings-header {
 	margin-bottom: 10px;
 	font-family: "Synonym-Semibold";
@@ -372,6 +376,32 @@ li {
 	font-size: 14px;
 }
 
+#task-name {
+	width: 75%;
+	border: var(--black);
+	border-radius: 5px;
+	padding: 5px 5px;
+	font-size: 14px;
+}
+
+#task-buttons {
+	margin-top: 10px;
+}
+
+.task-button {
+	margin-right: 5px;
+	background-color: white;
+	border-color: white;
+	padding: 2px;
+	border-radius: 10px;
+	border-style: solid;
+	width: 50px;
+	color: var(--black);
+	font-family: "Synonym-Semibold";
+	font-size: 12px;
+	cursor: pointer;
+}
+
 @media only screen and (min-width: 600px) {
 	#settings-container {
 		padding: 30px;
@@ -380,6 +410,15 @@ li {
 	.settings-right-div select {
 		padding: 5px 10px;
 		font-size: 16px;
+	}
+
+	#task-name {
+		padding: 5px 10px;
+		font-size: 16px;
+	}
+
+	.task-button {
+		font-size: 14px;
 	}
 }
 

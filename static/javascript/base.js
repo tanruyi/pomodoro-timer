@@ -94,6 +94,9 @@ window.addEventListener("load", function () {
 	const settingsModal = document.getElementById("settings-modal");
 	const settingsCloseIcon = document.getElementById("settings-close");
 	const bgImageSelect = document.getElementById("background-img-select");
+	const taskName = document.getElementById("task-name");
+	const saveTaskButton = document.getElementById("save-task-button");
+	const clearTaskButton = document.getElementById("clear-task-button");
 
 	// credits modal
 	const creditsModal = document.getElementById("credits-modal");
@@ -220,6 +223,14 @@ window.addEventListener("load", function () {
 		bgImage.src = backgroundData[imgIndex].fileLocation;
 	}
 
+	function saveTask() {
+		console.log(taskName.value);
+	}
+
+	function clearTask() {
+		taskName.value = null;
+	}
+
 	/*=====================================
 	// EVENT LISTENERS
     =====================================*/
@@ -275,8 +286,16 @@ window.addEventListener("load", function () {
 		settingsModal.style.display = "none";
 	});
 
-	bgImageSelect.addEventListener("change", function () {
-		changeBackgroundImage(bgImageSelect.value);
+	// bgImageSelect.addEventListener("change", function () {
+	// 	changeBackgroundImage(bgImageSelect.value);
+	// });
+
+	saveTaskButton.addEventListener("click", function () {
+		saveTask();
+	});
+
+	clearTaskButton.addEventListener("click", function () {
+		clearTask();
 	});
 
 	creditsButton.addEventListener("click", function () {

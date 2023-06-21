@@ -100,12 +100,14 @@
 					<div id="settings-container">
 						<span id="settings-close" class="fa-solid fa-xmark"></span>
 						<div id="settings-body">
+							<!-- left: menu bar -->
 							<div id="settings-left-div">
 								<h1>Theme</h1>
 								<h1>Task</h1>
 								<h1>Timers</h1>
 							</div>
-							<div id="settings-right-div-theme" class="settings-right-div">
+							<!-- right: theme settings -->
+							<!-- <div id="settings-right-div-theme" class="settings-right-div">
 								<p class="settings-header">Select theme:</p>
 								<select id="background-img-select">
 									<option value="dried-flowers">Dried flowers</option>
@@ -113,6 +115,16 @@
 									<option value="snowy-rooftops">Snowy Rooftops</option>
 									<option value="snowy-streets">Snowy Streets</option>
 								</select>
+							</div> -->
+
+							<!-- right: task settings -->
+							<div id="settings-right-div-task" class="settings-right-div">
+								<p class="settings-header">Task:</p>
+								<input type="text" id="task-name" />
+								<div id="task-buttons">
+									<button id="save-task-button" class="task-button">save</button>
+									<button id="clear-task-button" class="task-button">clear</button>
+								</div>
 							</div>
 						</div>
 					</div>
