@@ -53,10 +53,17 @@ li {
 	font-family: "Synonym-Semibold";
 	cursor: pointer;
 	padding: 0 5px;
+	font-size: 13px;
 }
 
 .nav-button:hover {
 	text-decoration: underline;
+}
+
+@media only screen and (min-width: 600px) {
+	.nav-button {
+		font-size: 18px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -296,6 +303,110 @@ li {
 
 	#about-container ul {
 		font-size: 14px;
+	}
+}
+
+/* settings modal */
+#settings-modal {
+	/* display: none; */
+}
+
+#settings-overlay {
+	background-color: var(--bg-overlay);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: var(--footer-height);
+}
+
+#settings-container {
+	background-color: var(--black);
+	position: relative;
+	top: 25vh;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 25px;
+	width: 90vw;
+	border-radius: 20px;
+	padding: 20px;
+	color: white;
+}
+
+#settings-close {
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+#settings-body {
+	display: flex;
+	flex-direction: row;
+}
+
+#settings-left-div {
+	width: 30%;
+	font-family: "Synonym-Semibold";
+}
+
+#settings-left-div h1 {
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+#settings-left-div h1:hover {
+	text-decoration: underline;
+}
+
+.settings-header {
+	margin-bottom: 10px;
+	font-family: "Synonym-Semibold";
+}
+
+.settings-right-div select {
+	border: none;
+	border-radius: 5px;
+	padding: 5px 5px;
+	font-size: 14px;
+}
+
+#settings-save {
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+#settings-save button {
+	background-color: white;
+	border-color: white;
+	padding: 5px 10px;
+	border-radius: 20px;
+	border-style: solid;
+	width: 130px;
+	color: var(--black);
+	font-family: "Synonym-Semibold";
+	font-size: 14px;
+	cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+	#settings-container {
+		padding: 30px;
+	}
+
+	.settings-right-div select {
+		padding: 5px 10px;
+		font-size: 16px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#settings-container {
+		min-height: 85px;
+		width: 50vw;
+		padding: 50px;
 	}
 }
 

@@ -40,6 +40,7 @@ window.addEventListener("load", function () {
 
 	// menu bar
 	const creditsButton = document.getElementById("credits-button");
+	const settingsButton = document.getElementById("settings-button");
 	const aboutButton = document.getElementById("about-button");
 
 	// timer section
@@ -59,6 +60,10 @@ window.addEventListener("load", function () {
 	// about modal
 	const aboutModal = document.getElementById("about-modal");
 	const aboutCloseIcon = document.getElementById("about-close");
+
+	// settings modal
+	const settingsModal = document.getElementById("settings-modal");
+	const settingsCloseIcon = document.getElementById("settings-close");
 
 	// credits modal
 	const creditsModal = document.getElementById("credits-modal");
@@ -225,6 +230,14 @@ window.addEventListener("load", function () {
 
 	aboutCloseIcon.addEventListener("click", function () {
 		aboutModal.style.display = "none";
+	});
+
+	settingsButton.addEventListener("click", function () {
+		settingsModal.style.display = "block";
+	});
+
+	settingsCloseIcon.addEventListener("click", function () {
+		settingsModal.style.display = "none";
 	});
 
 	creditsButton.addEventListener("click", function () {
