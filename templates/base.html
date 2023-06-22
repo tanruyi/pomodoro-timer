@@ -20,14 +20,32 @@
 	<body>
 		<main>
 			<!-- background image -->
-			<img id="page-background-image" src="{{ imageURL }}" alt="dried-flowers" />
+			<img id="page-background-image" src="/static/assets/dried-flowers.jpg" alt="dried-flowers" />
 			<div id="page-background-overlay"></div>
 
-			<!-- logo -->
-			<p id="logo">pomodoro timer</p>
+			<!-- menu bar -->
+			<section id="menu-bar">
+				<!-- logo -->
+				<p id="logo">pomodoro timer</p>
+
+				<div>
+					<p id="about-button" class="nav-button">about</p>
+					<p id="settings-button" class="nav-button">settings</p>
+					<p id="credits-button" class="nav-button">credits</p>
+				</div>
+			</section>
 
 			<!-- timer -->
 			<section id="timer-section">
+				<div id="current-task-section">
+					<p id="current-task">working on: creating pomodoro timer</p>
+				</div>
+				<div id="progress-section">
+					<span class="fa-regular fa-star fa-2xl"></span>
+					<span class="fa-regular fa-star fa-2xl"></span>
+					<span class="fa-regular fa-star fa-2xl"></span>
+					<span class="fa-regular fa-star fa-2xl"></span>
+				</div>
 				<div>
 					<button id="focus-button" class="timer-buttons timer-buttons-active">focus</button>
 					<button id="break-button" class="timer-buttons">break</button>
@@ -37,6 +55,163 @@
 				<div>
 					<button id="start-pause-button" class="timer-control-buttons">start</button>
 					<button id="reset-button" class="timer-control-buttons">reset</button>
+				</div>
+			</section>
+
+			<!-- spotify player -->
+			<section>
+				<iframe
+					id="spotify-playlist"
+					style="border-radius: 12px"
+					src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0"
+					frameborder="0"
+					allowfullscreen=""
+					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+					loading="lazy"
+				></iframe>
+			</section>
+
+			<!-- message popup -->
+			<section id="message-popup">
+				<div id="message-overlay">
+					<div id="message-container">
+						<span id="message-close" class="fa-solid fa-xmark"></span>
+						<p id="message"></p>
+					</div>
+				</div>
+			</section>
+
+			<!-- about modal -->
+			<section id="about-modal">
+				<div id="about-overlay">
+					<div id="about-container">
+						<span id="about-close" class="fa-solid fa-xmark"></span>
+						<h1>🍅 pomodoro technique: 🍅</h1>
+						<ol>
+							<li>pick a task</li>
+							<li>set a 25-minute timer to focus on the task (pomodoro)</li>
+							<li>work on your task until time is up</li>
+							<li>take a short, 5-min break</li>
+							<li>for every 4 pomodoros, take a longer 15-30min break</li>
+						</ol>
+					</div>
+				</div>
+			</section>
+
+			<!-- settings modal -->
+			<section id="settings-modal">
+				<div id="settings-overlay">
+					<div id="settings-container">
+						<span id="settings-close" class="fa-solid fa-xmark"></span>
+						<div id="settings-body">
+							<!-- left: menu bar -->
+							<div id="settings-left-div">
+								<h1 id="settings-theme-button" class="settings-category-button settings-category-button-active">Theme</h1>
+								<h1 id="settings-task-button" class="settings-category-button">Task</h1>
+								<h1 id="settings-timers-button" class="settings-category-button">Timers</h1>
+							</div>
+							<!-- right: theme settings -->
+							<div id="settings-right-div-theme" class="settings-right-div">
+								<p class="settings-header">Select theme:</p>
+								<select id="background-img-select">
+									<option value="dried-flowers">Dried flowers</option>
+									<option value="rainbow-sky">Rainbow Sky</option>
+									<option value="snowy-rooftops">Snowy Rooftops</option>
+									<option value="snowy-streets">Snowy Streets</option>
+								</select>
+							</div>
+
+							<!-- right: task settings -->
+							<div id="settings-right-div-task" class="settings-right-div">
+								<p class="settings-header">Task:</p>
+								<input type="text" id="task-name" />
+								<div id="task-buttons">
+									<button id="save-task-button" class="task-button">save</button>
+									<button id="clear-task-button" class="task-button">clear</button>
+								</div>
+							</div>
+
+							<!-- right: timer settings -->
+							<div id="settings-right-div-timers" class="settings-right-div">
+								<p class="settings-header">Timer durations (in minutes):</p>
+								<div class="settings-timer-durations">
+									<div id="settings-timer-duration-labels">
+										<label for="focus-duration">Focus:</label>
+										<label for="break-duration">Break:</label>
+										<label for="recharge-duration">Recharge:</label>
+									</div>
+									<div id="settings-timer-duration-inputs">
+										<input id="focus-duration" type="number" value="25" min="1" max="60" />
+										<input id="break-duration" value="5" type="number" min="1" max="60" />
+										<input id="recharge-duration" value="30" type="number" min="1" max="60" />
+									</div>
+								</div>
+								<p id="settings-timer-note">Note: Minimum is 1 and maximum is 60.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- credits modal -->
+			<section id="credits-modal">
+				<div id="credits-overlay">
+					<div id="credits-container">
+						<span id="credits-close" class="fa-solid fa-xmark"></span>
+						<h1>Credits</h1>
+
+						<h2>Inspiration</h2>
+						<ul class="credits-list">
+							<li><a href="https://studywithme.io/aesthetic-pomodoro-timer/">studywithme.io by Gridfiti</a></li>
+						</ul>
+
+						<h2>Fonts</h2>
+						<ul class="credits-list">
+							<li>Synonym by <a href="https://www.fontshare.com/fonts/synonym">Fontshare</a></li>
+						</ul>
+
+						<h2>Background Images</h2>
+						<ul class="credits-list">
+							<li>
+								Dried Flowers by
+								<a href="https://www.freepik.com/free-photo/dried-flower-window-shadow-floral-image_11460360.htm">rawpixel.com</a> on Freepik
+							</li>
+							<li>
+								Rainbow Sky by
+								<a
+									href="https://www.freepik.com/free-vector/aesthetic-pastel-pink-background-rainbow-sky-with-glitter-design-vector_20346136.htm"
+									>rawpixel.com</a
+								>
+								on Freepik
+							</li>
+							<li>
+								Snowy Rooftop by
+								<a href="https://unsplash.com/photos/lXaOSpd_UQw">Aleksandr Popov</a>
+								on Unsplash
+							</li>
+							<li>
+								Snowy Streets by
+								<a href="https://www.deviantart.com/hammling/art/Lofi-Chillhop-vibes-2021-870072007">Hammling</a>
+								on Devianart
+							</li>
+						</ul>
+
+						<h2>Favicon</h2>
+						<ul class="credits-list">
+							<li>Glowing Star favicon from <a href="https://favicon.io/emoji-favicons/glowing-star/">favicon.io</a></li>
+						</ul>
+
+						<h2>Icons</h2>
+						<ul class="credits-list">
+							<li>GitHub icon from <a href="https://fontawesome.com/icons/github?f=brands&s=solid">Font Awesome</a></li>
+							<li>LinkedIn icon from <a href="https://fontawesome.com/icons/linkedin?f=brands&s=solid">Font Awesome</a></li>
+						</ul>
+
+						<h2>Audio</h2>
+						<ul class="credits-list">
+							<li>Bell - Congratulations by Epic Stock Media on <a href="https://uppbeat.io/">Uppbeat</a></li>
+						</ul>
+					</div>
 				</div>
 			</section>
 		</main>
