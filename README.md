@@ -4,6 +4,8 @@
 
 This is a web app that I'm doing as the Final Project as part of Harvard's CS50x course.
 
+The web app is live here: https://pomodoro-timer-habs.onrender.com/
+
 I will be attempting to make a web app that is similar to the https://studywithme.io/aesthetic-pomodoro-timer/
 
 # Tech Stack
