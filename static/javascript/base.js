@@ -77,6 +77,8 @@ window.addEventListener("load", function () {
 	const aboutButton = document.getElementById("about-button");
 
 	// timer section
+	const currentTaskSection = document.getElementById("current-task-section");
+	const currentTask = document.getElementById("current-task");
 	const stars = document.querySelectorAll(".fa-star");
 	const countdown = document.getElementById("timer-countdown");
 	const focusButton = document.getElementById("focus-button");
@@ -263,11 +265,14 @@ window.addEventListener("load", function () {
 	}
 
 	function saveTask() {
-		console.log(taskName.value);
+		currentTask.innerText = "working on: " + taskName.value;
+		currentTaskSection.style.display = "block";
 	}
 
 	function clearTask() {
 		taskName.value = null;
+		currentTask.innerText = taskName.value;
+		currentTaskSection.style.display = "none";
 	}
 
 	/*=====================================
