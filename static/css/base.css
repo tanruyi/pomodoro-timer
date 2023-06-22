@@ -5,11 +5,20 @@ body {
 	--footer-height: 10vh;
 	--bg-overlay: rgba(94, 94, 94, 0.35);
 	--black: rgba(36, 35, 41, 255);
+	--shadow: 5px 5px 4px 2px rgba(81, 81, 81, 0.498);
 }
 
 /* global declarations */
 li {
 	line-height: 2;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	font-family: "Synonym-Semibold";
 }
 
 /* background image */
@@ -260,7 +269,7 @@ li {
 }
 
 #about-container {
-	background-color: white;
+	background-color: var(--black);
 	position: relative;
 	top: 25vh;
 	left: 0;
@@ -271,6 +280,8 @@ li {
 	width: 90vw;
 	border-radius: 20px;
 	padding: 20px;
+	box-shadow: var(--shadow);
+	color: white;
 }
 
 #about-close {
@@ -349,6 +360,7 @@ li {
 	border-radius: 20px;
 	padding: 20px;
 	color: white;
+	box-shadow: var(--shadow);
 }
 
 #settings-close {
@@ -509,7 +521,7 @@ li {
 }
 
 #credits-container {
-	background-color: white;
+	background-color: var(--black);
 	position: relative;
 	top: 15vh;
 	left: 0;
@@ -520,6 +532,8 @@ li {
 	width: 90vw;
 	border-radius: 20px;
 	padding: 20px;
+	box-shadow: var(--shadow);
+	color: white;
 }
 
 #credits-close {
