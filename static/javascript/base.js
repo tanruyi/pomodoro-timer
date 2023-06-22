@@ -135,6 +135,11 @@ window.addEventListener("load", function () {
 		// iterate through each key-value pair in cookiesArray & search for the pair that starts with target name
 		// return the value of the pair
 		cookiesArray.forEach((element) => {
+			// there will be a extra " " in front of each key-value pair from 2nd pair onwards
+			while (element.charAt(0) == " ") {
+				element = element.substring(1);
+			}
+
 			if (element.indexOf(nameToSearch) === 0) {
 				result = element.substring(nameToSearch.length);
 			}
@@ -148,7 +153,15 @@ window.addEventListener("load", function () {
 		let cookieValue = getCookie(cookieName);
 
 		if (cookieValue != null) {
-			imgIndex = cookieValue;
+			if (cookieName === "imgIndex") {
+				imgIndex = cookieValue;
+			} else if (cookieName === "focusDuration") {
+				timerOptions[0].duration = cookieValue;
+			} else if (cookieName === "breakDuration") {
+				timerOptions[1].duration = cookieValue;
+			} else if (cookieName === "rechargeDuration") {
+				timerOptions[2].duration = cookieValue;
+			}
 		}
 	}
 
@@ -391,16 +404,19 @@ window.addEventListener("load", function () {
 
 	focusDurationInput.addEventListener("change", function () {
 		timerOptions[0].duration = focusDurationInput.value;
+		setCookie("focusDuration", timerOptions[0].duration);
 		changeCountdown();
 	});
 
 	breakDurationInput.addEventListener("change", function () {
 		timerOptions[1].duration = breakDurationInput.value;
+		setCookie("breakDuration", timerOptions[1].duration);
 		changeCountdown();
 	});
 
 	rechargeDurationInput.addEventListener("change", function () {
 		timerOptions[2].duration = rechargeDurationInput.value;
+		setCookie("rechargeDuration", timerOptions[2].duration);
 		changeCountdown();
 	});
 
@@ -415,6 +431,13 @@ window.addEventListener("load", function () {
 	/*=====================================
 	// FUNCTIONS TO RUN ON LOAD
     =====================================*/
+	// change bg image based on cookie
 	checkCookie("imgIndex");
 	changeBackgroundImage(backgroundData[imgIndex].name);
+
+	// change timer durations based on cookie
+	checkCookie("focusDuration");
+	checkCookie("breakDuration");
+	checkCookie("rechargeDuration");
+	changeCountdown();
 });
