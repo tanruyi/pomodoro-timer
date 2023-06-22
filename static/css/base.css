@@ -84,6 +84,16 @@ li {
 	align-items: center;
 }
 
+#current-task-section {
+	display: none;
+	color: white;
+	font-family: "Synonym-Semibold";
+	width: 80%;
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 25px;
+}
+
 #progress-section {
 	padding: 40px;
 }
@@ -143,6 +153,10 @@ li {
 }
 
 @media only screen and (min-width: 768px) {
+	#current-task {
+		font-size: 22px;
+	}
+
 	.timer-buttons {
 		width: 150px;
 		font-size: 18px;
