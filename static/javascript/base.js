@@ -7,21 +7,8 @@ window.addEventListener("load", function () {
 	// DATA
     =====================================*/
 
-	// duration is in minutes
-	let timerOptions = [
-		{
-			name: "focus",
-			duration: 25,
-		},
-		{
-			name: "break",
-			duration: 5,
-		},
-		{
-			name: "recharge",
-			duration: 30,
-		},
-	];
+	// Background image
+	let imgIndex = 0;
 
 	let backgroundData = [
 		{
@@ -42,22 +29,39 @@ window.addEventListener("load", function () {
 		},
 	];
 
-	let settingCategories = ["theme", "task", "timers"];
+	// Timer
+	// duration is in minutes
+	let timerOptions = [
+		{
+			name: "focus",
+			duration: 25,
+		},
+		{
+			name: "break",
+			duration: 5,
+		},
+		{
+			name: "recharge",
+			duration: 30,
+		},
+	];
+
+	let progress = 0;
 
 	let activeTimerOptionIndex = 0;
 
 	let timerInterval;
+
 	let timer = timerOptions[activeTimerOptionIndex].duration * 60;
 
 	const alarm = new Audio("/static/assets/bell-congratulations-epic-stock-media-1-00-01.mp3");
 
-	let progress = 0;
-
 	const messages = ["Give yourself a pat on the back! You have earned a star! ⭐", "You completed 4 focus sessions! Congratulations! 🎉"];
 
-	let currentSettingCategoryIndex = 0;
+	// Settings
+	let settingCategories = ["theme", "task", "timers"];
 
-	let imgIndex = 0;
+	let currentSettingCategoryIndex = 0;
 
 	/*=====================================
 	// DOM ELEMENTS
@@ -117,7 +121,7 @@ window.addEventListener("load", function () {
     =====================================*/
 	function setCookie(cookieName, cookieValue) {
 		// set expiry date 30 days from creation
-		let expiryDate = new Date();
+		const expiryDate = new Date();
 		expiryDate.setTime(expiryDate.getTime() + 30 * 24 * 60 * 60 * 1000);
 		const expires = "expires=" + expiryDate.toUTCString();
 
@@ -150,7 +154,7 @@ window.addEventListener("load", function () {
 	}
 
 	function checkCookie(cookieName) {
-		let cookieValue = getCookie(cookieName);
+		const cookieValue = getCookie(cookieName);
 
 		if (cookieValue != null) {
 			if (cookieName === "imgIndex") {
@@ -169,6 +173,7 @@ window.addEventListener("load", function () {
 	// EVENT HANDLERS
     =====================================*/
 
+	// Timer
 	function changeTimerButtonsStyling(type) {
 		if (type === "add") {
 			if (activeTimerOptionIndex === 0) {
@@ -281,6 +286,7 @@ window.addEventListener("load", function () {
 		}
 	}
 
+	// Settings Modal
 	function changeSettingsCategoryToDisplay(category) {
 		if (currentSettingCategoryIndex === 0) {
 			themeSection.style.display = "none";
@@ -327,6 +333,8 @@ window.addEventListener("load", function () {
 	/*=====================================
 	// EVENT LISTENERS
     =====================================*/
+
+	// Timer
 	focusButton.addEventListener("click", function () {
 		changeTimer("focus");
 		changePlayPauseButtonText("start");
@@ -359,6 +367,7 @@ window.addEventListener("load", function () {
 		changeCountdown();
 	});
 
+	// Message Modal
 	messageCloseIcon.addEventListener("click", function () {
 		messagePopup.style.display = "none";
 	});
@@ -367,10 +376,12 @@ window.addEventListener("load", function () {
 		aboutModal.style.display = "block";
 	});
 
+	// About Modal
 	aboutCloseIcon.addEventListener("click", function () {
 		aboutModal.style.display = "none";
 	});
 
+	// Settings Modal
 	settingsButton.addEventListener("click", function () {
 		settingsModal.style.display = "block";
 	});
@@ -394,6 +405,7 @@ window.addEventListener("load", function () {
 	bgImageSelect.addEventListener("change", function () {
 		changeBackgroundImage(bgImageSelect.value);
 	});
+
 	saveTaskButton.addEventListener("click", function () {
 		saveTask();
 	});
@@ -420,6 +432,7 @@ window.addEventListener("load", function () {
 		changeCountdown();
 	});
 
+	// Credits Modal
 	creditsButton.addEventListener("click", function () {
 		creditsModal.style.display = "block";
 	});
