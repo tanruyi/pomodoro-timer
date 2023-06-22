@@ -27,25 +27,18 @@ window.addEventListener("load", function () {
 		{
 			name: "dried-flowers",
 			fileLocation: "/static/assets/dried-flowers.jpg",
-			attribute:
-				'<a href="https://www.freepik.com/free-photo/dried-flower-window-shadow-floral-image_11460360.htm#query=aesthetic%20background&position=49&from_view=search&track=robertav1_2_sidr">Image by rawpixel.com</a> on Freepik',
 		},
 		{
 			name: "rainbow-sky",
 			fileLocation: "/static/assets/rainbow-sky.jpg",
-			attribute:
-				'<a href="https://www.freepik.com/free-vector/aesthetic-pastel-pink-background-rainbow-sky-with-glitter-design-vector_20346136.htm#page=3&query=aesthetic%20background&position=21&from_view=search&track=robertav1_2_sidr">Image by rawpixel.com</a> on Freepik',
 		},
 		{
 			name: "snowy-rooftops",
 			fileLocation: "/static/assets/snowy-rooftops.jpg",
-			attribute:
-				'Photo by <a href="https://unsplash.com/@5tep5?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aleksandr Popov</a> on <a href="https://unsplash.com/wallpapers/cool/aesthetic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
 		},
 		{
 			name: "snowy-streets",
 			fileLocation: "/static/assets/snowy-streets.jpg",
-			attribute: "https://www.artstation.com/artwork/D5Vlxo",
 		},
 	];
 
@@ -63,6 +56,8 @@ window.addEventListener("load", function () {
 	const messages = ["Give yourself a pat on the back! You have earned a star! ⭐", "You completed 4 focus sessions! Congratulations! 🎉"];
 
 	let currentSettingCategoryIndex = 0;
+
+	let imgIndex = 0;
 
 	/*=====================================
 	// DOM ELEMENTS
@@ -116,6 +111,59 @@ window.addEventListener("load", function () {
 	// credits modal
 	const creditsModal = document.getElementById("credits-modal");
 	const creditsCloseIcon = document.getElementById("credits-close");
+
+	/*=====================================
+	// COOKIES
+    =====================================*/
+	function setCookie(cookieName, cookieValue) {
+		// set expiry date 30 days from creation
+		let expiryDate = new Date();
+		expiryDate.setTime(expiryDate.getTime() + 30 * 24 * 60 * 60 * 1000);
+		const expires = "expires=" + expiryDate.toUTCString();
+
+		// create cookie
+		document.cookie = cookieName + "=" + cookieValue + ";" + expires + "; path=/";
+	}
+
+	function getCookie(cookieName) {
+		const nameToSearch = cookieName + "=";
+		const decodedCookies = decodeURIComponent(document.cookie);
+		const cookiesArray = decodedCookies.split(";");
+
+		let result;
+
+		// iterate through each key-value pair in cookiesArray & search for the pair that starts with target name
+		// return the value of the pair
+		cookiesArray.forEach((element) => {
+			// there will be a extra " " in front of each key-value pair from 2nd pair onwards
+			while (element.charAt(0) == " ") {
+				element = element.substring(1);
+			}
+
+			if (element.indexOf(nameToSearch) === 0) {
+				result = element.substring(nameToSearch.length);
+			}
+		});
+
+		// result will be null if no match is found
+		return result;
+	}
+
+	function checkCookie(cookieName) {
+		let cookieValue = getCookie(cookieName);
+
+		if (cookieValue != null) {
+			if (cookieName === "imgIndex") {
+				imgIndex = cookieValue;
+			} else if (cookieName === "focusDuration") {
+				timerOptions[0].duration = cookieValue;
+			} else if (cookieName === "breakDuration") {
+				timerOptions[1].duration = cookieValue;
+			} else if (cookieName === "rechargeDuration") {
+				timerOptions[2].duration = cookieValue;
+			}
+		}
+	}
 
 	/*=====================================
 	// EVENT HANDLERS
@@ -260,8 +308,9 @@ window.addEventListener("load", function () {
 	}
 
 	function changeBackgroundImage(imgName) {
-		let imgIndex = backgroundData.findIndex((element) => element.name === imgName);
+		imgIndex = backgroundData.findIndex((element) => element.name === imgName);
 		bgImage.src = backgroundData[imgIndex].fileLocation;
+		setCookie("imgIndex", imgIndex);
 	}
 
 	function saveTask() {
@@ -355,16 +404,19 @@ window.addEventListener("load", function () {
 
 	focusDurationInput.addEventListener("change", function () {
 		timerOptions[0].duration = focusDurationInput.value;
+		setCookie("focusDuration", timerOptions[0].duration);
 		changeCountdown();
 	});
 
 	breakDurationInput.addEventListener("change", function () {
 		timerOptions[1].duration = breakDurationInput.value;
+		setCookie("breakDuration", timerOptions[1].duration);
 		changeCountdown();
 	});
 
 	rechargeDurationInput.addEventListener("change", function () {
 		timerOptions[2].duration = rechargeDurationInput.value;
+		setCookie("rechargeDuration", timerOptions[2].duration);
 		changeCountdown();
 	});
 
@@ -375,4 +427,17 @@ window.addEventListener("load", function () {
 	creditsCloseIcon.addEventListener("click", function () {
 		creditsModal.style.display = "none";
 	});
+
+	/*=====================================
+	// FUNCTIONS TO RUN ON LOAD
+    =====================================*/
+	// change bg image based on cookie
+	checkCookie("imgIndex");
+	changeBackgroundImage(backgroundData[imgIndex].name);
+
+	// change timer durations based on cookie
+	checkCookie("focusDuration");
+	checkCookie("breakDuration");
+	checkCookie("rechargeDuration");
+	changeCountdown();
 });
