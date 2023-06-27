@@ -8,6 +8,13 @@ The web app is live here: https://pomodoro-timer-habs.onrender.com/
 
 I will be attempting to make a web app that is similar to the https://studywithme.io/aesthetic-pomodoro-timer/
 
+Video Demo: https://youtu.be/uB8wdjiZV2E
+
+# Description
+This web app helps users focus on their tasks using a pomodoro technique. The user decides on a task to focus on for 25minutes, and then takes a short break. This process repeats until the user has completed 4 rounds, then they can take a longer break.
+
+The web app has timers for focus, break and recharge that users can use. There is also a spotify player that users can use to set some background music, and there are stars that helps to track how many focus durations they have completed.
+
 # Tech Stack
 
 -   Python / Flask
